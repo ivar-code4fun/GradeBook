@@ -10,17 +10,30 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            GradeBook book = new GradeBook();
-            book.AddGrade(91);
-            book.AddGrade(89.5f);
-            book.AddGrade(75);
+            WriteBytes(int.MinValue);
+            WriteBytes(int.MaxValue);
+            //GradeBook book = new GradeBook();
+            //book.AddGrade(91);
+            //book.AddGrade(89.5f);
+            //book.AddGrade(75);
 
-            GradeStatistics stats = book.ComputeStatistics();
+            //GradeStatistics stats = book.ComputeStatistics();
 
-            Console.WriteLine(stats.AverageGrade);
-            Console.WriteLine(stats.HighestGrade);
-            Console.WriteLine(stats.LowestGrade);
-            Console.ReadLine();
+            //Console.WriteLine(stats.AverageGrade);
+            //Console.WriteLine(stats.HighestGrade);
+            //Console.WriteLine(stats.LowestGrade);
+            //Console.ReadLine();
         }
+
+        public static void WriteBytes(int value)
+        {
+            byte[] bytes = BitConverter.GetBytes(value);
+
+            foreach (byte b in bytes)
+            {
+                Console.WriteLine("0:x{0:X2}", b);
+            }
+        }
+
     }
 }
